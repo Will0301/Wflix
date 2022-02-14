@@ -2,14 +2,12 @@ package com.Wflix.controller;
 
 import com.Wflix.dto.MovieDTO;
 import com.Wflix.dto.MovieMapper;
-import com.Wflix.model.entities.MoviesImdb;
 import com.Wflix.model.entities.Movie;
 import com.Wflix.model.service.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.io.IOException;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.*;
@@ -50,11 +48,5 @@ public class MovieController {
     public void deleteById(@PathVariable String id){
         movieService.deleteById(id);
     }
-
-    @GetMapping("/api")
-    public MoviesImdb get(@RequestParam String l) throws IOException, InterruptedException {
-        return movieService.get(l);
-    }
-
 
 }
