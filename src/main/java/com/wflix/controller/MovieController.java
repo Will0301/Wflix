@@ -1,9 +1,9 @@
-package com.Wflix.controller;
+package com.wflix.controller;
 
-import com.Wflix.dto.MovieDTO;
-import com.Wflix.dto.MovieMapper;
-import com.Wflix.model.entities.Movie;
-import com.Wflix.model.service.MovieService;
+import com.wflix.dto.MovieDTO;
+import com.wflix.dto.MovieMapper;
+import com.wflix.model.entities.Movie;
+import com.wflix.model.service.MovieService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,5 +48,6 @@ public class MovieController {
     public void deleteById(@PathVariable String id){
         movieService.deleteById(id);
     }
+
 
 }

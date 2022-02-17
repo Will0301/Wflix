@@ -1,4 +1,4 @@
-package com.Wflix;
+package com.wflix;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

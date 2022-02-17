@@ -1,6 +1,6 @@
-package com.Wflix.dto;
+package com.wflix.dto;
 
-import com.Wflix.model.entities.Movie;
+import com.wflix.model.entities.Movie;
 
 public class MovieMapper {
 

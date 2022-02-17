@@ -1,4 +1,4 @@
-package com.Wflix.jackson;
+package com.wflix.jackson;
 
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;

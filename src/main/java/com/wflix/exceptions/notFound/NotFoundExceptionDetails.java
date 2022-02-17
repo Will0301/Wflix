@@ -1,4 +1,4 @@
-package com.Wflix.exceptions.notFound;
+package com.wflix.exceptions.notFound;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;

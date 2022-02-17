@@ -1,4 +1,4 @@
-package com.Wflix.dto;
+package com.wflix.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

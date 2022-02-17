@@ -1,10 +1,10 @@
-package com.Wflix.model.service;
+package com.wflix.model.service;
 
-import com.Wflix.dto.MovieDTO;
-import com.Wflix.dto.MovieMapper;
-import com.Wflix.exceptions.notFound.NotFoundException;
-import com.Wflix.model.entities.Movie;
-import com.Wflix.repository.MovieRepository;
+import com.wflix.dto.MovieDTO;
+import com.wflix.dto.MovieMapper;
+import com.wflix.exceptions.notFound.NotFoundException;
+import com.wflix.model.entities.Movie;
+import com.wflix.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

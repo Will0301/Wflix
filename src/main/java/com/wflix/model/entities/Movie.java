@@ -1,4 +1,4 @@
-package com.Wflix.model.entities;
+package com.wflix.model.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,5 +30,5 @@ public class Movie {
     @NotBlank
     private LocalDate release;
 
-    private MoviesImdb moviesImdb;
+    //private MoviesImdb moviesImdb;
 }

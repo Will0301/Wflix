@@ -1,8 +1,8 @@
-package com.Wflix.exceptions;
+package com.wflix.exceptions;
 
-import com.Wflix.exceptions.BadRequest.BadRequestExceptionDetails;
-import com.Wflix.exceptions.notFound.NotFoundException;
-import com.Wflix.exceptions.notFound.NotFoundExceptionDetails;
+import com.wflix.exceptions.BadRequest.BadRequestExceptionDetails;
+import com.wflix.exceptions.notFound.NotFoundException;
+import com.wflix.exceptions.notFound.NotFoundExceptionDetails;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

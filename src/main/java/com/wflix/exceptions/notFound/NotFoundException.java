@@ -1,4 +1,4 @@
-package com.Wflix.exceptions.notFound;
+package com.wflix.exceptions.notFound;
 
 import org.springframework.web.bind.annotation.ResponseStatus;
 

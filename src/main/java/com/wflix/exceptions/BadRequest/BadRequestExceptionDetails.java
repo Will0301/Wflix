@@ -1,4 +1,4 @@
-package com.Wflix.exceptions.BadRequest;
+package com.wflix.exceptions.BadRequest;
 
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
