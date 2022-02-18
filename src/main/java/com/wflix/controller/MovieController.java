@@ -2,9 +2,12 @@ package com.wflix.controller;
 
 import com.wflix.dto.MovieDTO;
 import com.wflix.dto.MovieMapper;
+import com.wflix.integration.model.MovieIMDB;
+import com.wflix.integration.model.MovieIntegration;
 import com.wflix.model.entities.Movie;
 import com.wflix.model.service.MovieService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -49,5 +52,10 @@ public class MovieController {
         movieService.deleteById(id);
     }
 
+    MovieIntegration movieRest;
+    @GetMapping("/get")
+    public MovieIMDB search(){
+        return movieRest.search("Avenger");
+    }
 
 }

@@ -3,11 +3,14 @@ package com.wflix.model.service;
 import com.wflix.dto.MovieDTO;
 import com.wflix.dto.MovieMapper;
 import com.wflix.exceptions.notFound.NotFoundException;
+import com.wflix.integration.model.MovieIMDB;
+import com.wflix.integration.model.MovieIntegration;
 import com.wflix.model.entities.Movie;
 import com.wflix.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -15,6 +18,8 @@ import java.util.List;
 public class MovieService {
 
     private final MovieRepository movieRepository;
+
+    private final MovieIntegration movieRest;
 
     public List<Movie> getAll() {
         return movieRepository.findAll();
@@ -49,5 +54,6 @@ public class MovieService {
     public void deleteIds(List<String> ids) {
         movieRepository.deleteAllById(ids);
     }
+
 
 }
