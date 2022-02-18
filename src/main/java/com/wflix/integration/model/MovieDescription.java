@@ -12,24 +12,24 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MovieDescription {
 
-    @JsonProperty("image")
-    private MoviePoster i;
+    @JsonProperty("i")
+    private MoviePoster image;
 
     @JsonProperty("id")
     private String id;
 
-    @JsonProperty("title")
-    private String l;
+    @JsonProperty("l")
+    private String title;
 
-    @JsonProperty("Response for")
+    @JsonProperty("q")
     private String q;
 
     private long rank;
 
-    @JsonProperty("cast")
+    @JsonProperty("s")
     private String s;
 
-    @JsonProperty("release")
+    @JsonProperty("y")
     private long y;
 
 }

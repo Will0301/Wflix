@@ -17,7 +17,7 @@ import java.util.List;
         @JsonProperty("d")
         private List<MovieDescription> MovieDescription;
 
-        @JsonProperty("q")
+        @JsonProperty("query")
         private String query;
 
     }
