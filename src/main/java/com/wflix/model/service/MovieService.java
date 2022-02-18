@@ -55,5 +55,4 @@ public class MovieService {
         movieRepository.deleteAllById(ids);
     }
 
-
 }

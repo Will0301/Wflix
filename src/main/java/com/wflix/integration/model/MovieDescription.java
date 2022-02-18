@@ -19,7 +19,7 @@ public class MovieDescription {
     private String id;
 
     @JsonProperty("l")
-    private String title;
+    private String l;
 
     @JsonProperty("q")
     private String q;

@@ -1,5 +1,7 @@
 package com.wflix.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wflix.integration.model.MoviePoster;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,17 +20,20 @@ import java.time.LocalDate;
 @Builder
 public class Movie {
 
-    @Id
+    private MoviePoster image;
+
     private String id;
 
-    @NotNull
-    private String name;
+    private String title;
 
-    @NotNull
-    private String genre;
+    private String type;
 
-    @NotBlank
-    private LocalDate release;
+    private long rank;
 
-    //private MoviesImdb moviesImdb;
+    private String cast;
+
+    private long release;
+
+    @JsonProperty("Searched for: ")
+    private String search;
 }

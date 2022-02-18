@@ -6,17 +6,15 @@ public class MovieMapper {
 
     public static Movie mapperToImpl(MovieDTO movieDTO){
         return Movie.builder()
-                .name(movieDTO.getName())
+                .title(movieDTO.getTitle())
                 .release(movieDTO.getRelease())
-                .genre(movieDTO.getGenre())
                 .build();
     }
 
     public static MovieDTO mapperToMovie(Movie movieDTO){
         return MovieDTO.builder()
-                .name(movieDTO.getName())
+                .title(movieDTO.getTitle())
                 .release(movieDTO.getRelease())
-                .genre(movieDTO.getGenre())
                 .build();
     }
 }

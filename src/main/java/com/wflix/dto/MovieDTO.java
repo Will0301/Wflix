@@ -1,13 +1,10 @@
 package com.wflix.dto;
 
+import com.wflix.integration.model.MoviePoster;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
@@ -15,13 +12,18 @@ import java.time.LocalDate;
 @Builder
 public class MovieDTO {
 
-    @NotBlank
-    @Size(min = 1, max = 30, message = "Tamanho inválido")
-    private String name;
+        private MoviePoster image;
 
-    @NotBlank
-    private String genre;
+        private String id;
 
-    private LocalDate release;
+        private String title;
+
+        private String query;
+
+        private long rank;
+
+        private String cast;
+
+        private long release;
 }
 

@@ -54,7 +54,7 @@ public class MovieController {
 
     MovieIntegration movieRest;
     @GetMapping("/search/{movie}")
-    public MovieIMDB search(@PathVariable String movie){
+    public List<Movie> search(@PathVariable String movie){
         return movieRest.search(movie);
     }
 

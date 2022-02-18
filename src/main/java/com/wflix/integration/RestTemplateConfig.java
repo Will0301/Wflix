@@ -9,6 +9,7 @@ public class RestTemplateConfig {
 
     @Bean
     public RestTemplate restTemplate(){
+
         return new RestTemplateBuilder()
                 .rootUri("https://imdb8.p.rapidapi.com")
                 .defaultHeader("x-rapidapi-host", "imdb8.p.rapidapi.com")
@@ -17,3 +18,5 @@ public class RestTemplateConfig {
     }
 
 }
+
+ //TODO conectar api externa, criar e conectar
