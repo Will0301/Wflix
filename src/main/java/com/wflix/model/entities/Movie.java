@@ -34,6 +34,8 @@ public class Movie {
 
     private long release;
 
+    private boolean available;
+
     @JsonProperty("Searched for: ")
     private String search;
 }

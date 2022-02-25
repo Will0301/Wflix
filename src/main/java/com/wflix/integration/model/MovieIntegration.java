@@ -18,7 +18,6 @@ public class MovieIntegration {
 
         List<Movie> movies = new ArrayList<>();
 
-
         List<MovieDescription> movieDescription =
                 Objects.requireNonNull(restTemplate.getForObject("/auto-complete?q=" + movie, MovieIMDB.class))
                         .getMovieDescription();

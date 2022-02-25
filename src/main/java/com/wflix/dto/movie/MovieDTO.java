@@ -1,5 +1,6 @@
-package com.wflix.dto;
+package com.wflix.dto.movie;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wflix.integration.model.MoviePoster;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,12 +19,17 @@ public class MovieDTO {
 
         private String title;
 
-        private String query;
+        private String type;
 
         private long rank;
 
         private String cast;
 
         private long release;
+
+        private boolean available;
+
+        @JsonProperty("Searched for: ")
+        private String search;
 }
 
