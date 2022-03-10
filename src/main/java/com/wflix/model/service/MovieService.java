@@ -19,8 +19,11 @@ public class MovieService {
 
     public List<Movie> searchFor(String title){
         if(movieRepository.findByTitleContainingIgnoreCase(title).isEmpty()){
-            movieRepository.saveAll(movieIntegration.search(title));
-            return movieIntegration.search(title);
+            List<Movie> movie = movieIntegration.search(title);
+            movie.forEach(film ->  film.setAvailable(true));
+            movieRepository.saveAll(movie);
+
+            return movieRepository.findByTitleContainingIgnoreCase(title);
         }
         else return movieRepository.findByTitleContainingIgnoreCase(title);
     }

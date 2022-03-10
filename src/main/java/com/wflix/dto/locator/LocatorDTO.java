@@ -4,7 +4,6 @@ import com.wflix.model.entities.Movie;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotBlank;
 import java.util.List;

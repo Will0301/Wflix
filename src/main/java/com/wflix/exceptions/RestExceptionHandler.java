@@ -32,9 +32,9 @@ public class RestExceptionHandler {
     public NotFoundExceptionDetails notFound(){
         return NotFoundExceptionDetails.builder()
                 .time(LocalDateTime.now())
-                .status(BAD_REQUEST.value())
+                .status(NOT_FOUND.value())
                 .title("Not Found")
-                .messege("The object does not exist.")
+                .details("")
                 .build();
     }
 }

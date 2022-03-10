@@ -11,6 +11,5 @@ public class NotFoundExceptionDetails {
     private String title;
     private int status;
     private String details;
-    private String messege;
     private LocalDateTime time;
 }

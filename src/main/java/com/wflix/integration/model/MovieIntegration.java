@@ -22,18 +22,16 @@ public class MovieIntegration {
                 Objects.requireNonNull(restTemplate.getForObject("/auto-complete?q=" + movie, MovieIMDB.class))
                         .getMovieDescription();
 
-        movieDescription.forEach(movieDescription1 -> {
-             movies.add(Movie.builder()
-                    .title(movieDescription1.getL())
-                    .cast(movieDescription1.getS())
-                    .image(movieDescription1.getImage())
-                    .id(movieDescription1.getId())
-                    .rank(movieDescription1.getRank())
-                    .release(movieDescription1.getY())
-                    .type(movieDescription1.getQ())
-                    .search(movie)
-                    .build());
-        });
+        movieDescription.forEach(movieDescription1 -> movies.add(Movie.builder()
+               .title(movieDescription1.getL())
+               .cast(movieDescription1.getS())
+               .image(movieDescription1.getImage())
+               .id(movieDescription1.getId())
+               .rank(movieDescription1.getRank())
+               .release(movieDescription1.getY())
+               .type(movieDescription1.getQ())
+               .search(movie)
+               .build()));
 
         return movies;
     }

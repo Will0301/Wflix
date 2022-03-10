@@ -19,5 +19,3 @@ public class RestTemplateConfig {
     }
 
 }
-
- //TODO conectar api externa, criar e conectar

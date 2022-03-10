@@ -1,6 +1,7 @@
 package com.wflix.model.service;
 
 import com.wflix.dto.locator.LocatorDTO;
+import com.wflix.exceptions.notFound.NotFoundException;
 import com.wflix.integration.model.MovieIntegration;
 import com.wflix.mappers.LocatorMapper;
 import com.wflix.model.entities.Locator;
@@ -46,17 +47,27 @@ public class LocatorService {
     public void rentMovies(String cpf, List<String> moviesIds){
         Iterable<Movie> source = movieRepository.findAllById(moviesIds);
         List<Movie> movieList = new ArrayList<>();
-        source.forEach(movieList::add);
+
+        source.forEach(movie -> {
+            if(movie.isAvailable()){
+                movieList.add(movie);
+            }
+        });
+        
 
         Locator locator = locatorRepository.getByCpf(cpf);
+        if(locator == null){throw new NotFoundException("CPF: " + cpf + "not found.");}
         locator.setMovieList(movieList);
         locatorRepository.save(LocatorMapper.mapperToImpl(locator));
 
-        movieRepository.deleteAllById(moviesIds);
+        source.forEach(movie -> movie.setAvailable(false));
+        movieRepository.saveAll(source);
     }
 
     public void giveBack(String cpf){
-        movieRepository.saveAll(locatorRepository.getByCpf(cpf).getMovieList());
+        List<Movie> movies = locatorRepository.getByCpf(cpf).getMovieList();
+        movies.forEach(film -> film.setAvailable(true));
+        movieRepository.saveAll(movies);
         Locator locator = locatorRepository.getByCpf(cpf);
         locator.setMovieList(null);
 
