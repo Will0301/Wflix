@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -21,6 +22,8 @@ public class Locator {
     @Id
     private String id;
 
+    @NotNull
+    @NotBlank
     private String name;
 
     @NotNull

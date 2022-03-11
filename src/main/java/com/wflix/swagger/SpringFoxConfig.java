@@ -2,6 +2,7 @@ package com.wflix.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -24,14 +25,15 @@ public class SpringFoxConfig {
     }
 
     public ApiInfo info(){
-        return new ApiInfo("Wflix movies",
-                "API that simulates an online rental company",
-                "1.0",
-                "Terms of service",
-                new Contact("Willian Weyh", "https://www.linkedin.com/in/willian-weyh/",
-                        "willian.f.w@hotmail.com").toString(),
-                "License",
-                "Http://license-wflix.com"
-        );
+        return new ApiInfoBuilder()
+                .title("Employee API")
+                .description("API that simulates an online rental company")
+                .version("1.0.0")
+                .contact(new Contact("Willian",
+                        "https://www.linkedin.com/in/willian-weyh/",
+                        "willian.f.w@hotmail.com"))
+                .license("Terms of service")
+                .licenseUrl("http://localhost:63342/Wflix/Wflix.main/com/wflix/view/terms/TermsOfService.html?_ijt=afopoio7akritao0uabjr9ddug&_ij_reload=RELOAD_ON_SAVE")
+                .build();
     }
 }
