@@ -20,6 +20,7 @@ import static org.springframework.http.HttpStatus.NO_CONTENT;
 @RequestMapping("/wflix")
 @AllArgsConstructor
 @Api(value = "Wflix movies")
+@CrossOrigin
 public class LocatorController {
 
     private final LocatorService locatorService;
@@ -40,7 +41,7 @@ public class LocatorController {
     @ApiOperation(value = "Sign in your user.")
     @ResponseStatus(CREATED)
     @PostMapping("/sign")
-    public Locator signIn(@RequestBody @Valid Locator locator){
+    public String signIn(@RequestBody @Valid Locator locator){
         return locatorService.signIn(locator);
     }
 
@@ -52,8 +53,8 @@ public class LocatorController {
 
     @ApiOperation(value = "Lets you rent one or more movies.")
     @GetMapping("/rent")
-    public void rentMovies(@RequestParam String cpf,@RequestParam List<String> moviesIds){
-        locatorService.rentMovies(cpf,moviesIds);
+    public List<String> rentMovies(@RequestParam String cpf,@RequestParam List<String> moviesIds){
+        return locatorService.rentMovies(cpf,moviesIds);
     }
 
     @ApiOperation(value = "Return the movies you have rented.")

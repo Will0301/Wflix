@@ -40,12 +40,12 @@ public class RestExceptionHandler {
 
     @ResponseStatus(NOT_FOUND)
     @ExceptionHandler(NotFoundException.class)
-    public NotFoundExceptionDetails notFound(String object){
+    public NotFoundExceptionDetails notFound(){
         return NotFoundExceptionDetails.builder()
                 .time(LocalDateTime.now())
                 .status(NOT_FOUND.value())
                 .title("Not Found")
-                .details("We could not find the movie with the title" + object)
+                .details("We could not find this endpoint")
                 .build();
     }
 

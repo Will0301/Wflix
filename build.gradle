@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	implementation 'junit:junit:4.13.1'
 	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
 	implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 	implementation 'org.json:json:20211205'

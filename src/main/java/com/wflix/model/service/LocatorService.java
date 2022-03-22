@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 @Data
 @AllArgsConstructor
@@ -24,13 +25,13 @@ public class LocatorService {
     private final MovieRepository movieRepository;
     private final MovieIntegration movieIntegration;
 
-    public Locator signIn(Locator locator){
+    public String signIn(Locator locator){
         if(locatorRepository.getByCpf(locator.getCpf()) != null){
-            return locator;
+            return "this CPF already exists";
         }
         else{
             locatorRepository.save(locator);
-            return locator;
+            return "User created \n" + LocatorMapper.mapperToDto(locator).toString();
         }
     }
 
@@ -40,20 +41,26 @@ public class LocatorService {
         return clients;
     }
 
-    public Locator getByName(String name){
-        return locatorRepository.getByNameContainingIgnoreCase(name);
-    }
+//    public Locator getByName(String name){
+//        return locatorRepository.getByNameContainingIgnoreCase(name);
+//    }
 
-    public void rentMovies(String cpf, List<String> moviesIds){
+    public List<String> rentMovies(String cpf, List<String> moviesIds){
         Iterable<Movie> source = movieRepository.findAllById(moviesIds);
         List<Movie> movieList = new ArrayList<>();
 
+        List<String> returnString = new ArrayList<>();
         source.forEach(movie -> {
             if(movie.isAvailable()){
                 movieList.add(movie);
+                String added = movie.getTitle() + " added to your list.";
+                returnString.add(added);
+            }
+            else{
+                String notAvailable = movie.getTitle() + " is not available.";
+                returnString.add(notAvailable);
             }
         });
-        
 
         Locator locator = locatorRepository.getByCpf(cpf);
         if(locator == null){throw new NotFoundException("CPF: " + cpf + "not found.");}
@@ -62,6 +69,8 @@ public class LocatorService {
 
         source.forEach(movie -> movie.setAvailable(false));
         movieRepository.saveAll(source);
+
+        return returnString;
     }
 
     public void giveBack(String cpf){
